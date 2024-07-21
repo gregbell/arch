@@ -22,15 +22,10 @@
     "ntp": true,
     "offline": false,
     "packages": [
-      // base packages
       "emacs git vim man base-devel openssh bash starship networkmanager dhclient rsync bluez",
-      // Desktop environment
       "sway swaybg polkit brightnessctl xorg-wayland waybar blueman pavucontrol",
-      // My fonts
       "ttf-iosevka-nerd",
-      // Some necessary apps
       "alacritty firefox duf grim",
-      // btrfs
       "snapper"
     ],
     "parallel downloads": 5,
