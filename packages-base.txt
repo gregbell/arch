@@ -1,0 +1,12 @@
+emacs-wayland
+vim
+man
+git
+openssh
+ripgrep
+fastfetch
+duf
+less
+reflector
+starship
+rsync
