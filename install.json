@@ -22,11 +22,7 @@
     "ntp": true,
     "offline": false,
     "packages": [
-      "emacs git vim man base-devel openssh bash starship networkmanager dhclient rsync bluez",
-      "sway swaybg polkit brightnessctl xorg-wayland waybar blueman pavucontrol",
-      "ttf-iosevka-nerd",
-      "alacritty firefox duf grim",
-      "snapper"
+      "git vim man base-devel openssh bash networkmanager dhclient rsync bluez"
     ],
     "parallel downloads": 5,
     "script": "guided",
@@ -38,6 +34,6 @@
     "uki": false,
     "version": "2.8.1",
     "custom-commands": [
-	    "cd /home/greg; git clone https://aur.archlinux.org/yay.git"
+      "cd /home/greg; git clone https://github.com/gregbell/arch"
     ]
 }
