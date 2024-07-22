@@ -1,5 +1,5 @@
 bluez
-bluemon
+blueman
 brightnessctl
 networkmanager
 sway
@@ -9,7 +9,6 @@ waybar
 xdg-desktop-portal
 xdg-desktop-portal-wlr
 xdg-desktop-portal-gtk
-xorg-wayland
 alacritty
 vlc
 mpv
