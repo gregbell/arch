@@ -16,3 +16,5 @@ firefox
 flatpak
 grim
 pavucontrol
+ttf-font-awesome
+ttf-iosevka-nerd
