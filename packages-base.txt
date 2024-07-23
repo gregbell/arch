@@ -1,6 +1,7 @@
 emacs-wayland
 vim
 man
+man-pages
 git
 openssh
 ripgrep
