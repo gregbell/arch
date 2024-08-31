@@ -22,7 +22,7 @@
     "ntp": true,
     "offline": false,
     "packages": [
-      "git vim man base-devel openssh bash networkmanager dhclient rsync bluez"
+      "git vim man-db man-pages base-devel openssh bash networkmanager dhclient rsync curl wget"
     ],
     "parallel downloads": 5,
     "script": "guided",
