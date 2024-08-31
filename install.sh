@@ -47,6 +47,9 @@ for file in $selected_files; do
   sudo pacman -S --needed --noconfirm $(cat "$file")
 done
 
+echo "> Enable base services"
+
+sudo systemctl enable --now NetworkManager
 
 echo "> Install 1Password..."
 
