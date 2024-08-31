@@ -14,16 +14,22 @@ sudo pacman -S --needed gum
 
 gum confirm "Have you updated /etc/pacman.conf?" || { echo "Please update /etc/pacman.conf and try again."; exit 1; }
 
+
+echo -e "\n===${RED} Installing the Chaotic AUR${NC}"
+
+pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+pacman-key --lsign-key 3056513887B78AEB
+pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
+pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+sudo pacman -Syy
+
+echo -e '\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist' | sudo tee -a /etc/pacman.conf
+
 echo -e "\n===${RED} AUR${NC}"
 
 if ! command -v yay &> /dev/null; then
-    sudo pacman -S --needed --noconfirm base-devel git
-    pushd /tmp
-    git clone https://aur.archlinux.org/yay-bin.git
-    pushd yay-bin
-    makepkg -si --noconfirm
-    popd
-    popd
+    sudo pacman -S --needed --noconfirm yay
+    yay -Syy
 else
     echo "Yay is already installed, moving on."
 fi
