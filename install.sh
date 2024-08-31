@@ -56,3 +56,20 @@ echo "> Install 1Password..."
 yay -Syu --needed 1password 1password-cli
 
 echo -e "\n\n${YELLOW}== Installation complete${NC}"
+
+function setup-tailscale() {
+    sudo pacman -S tailscale
+    sudo systemctl enable --now tailscaled
+    sudo tailscale up
+}
+
+gum confirm "Install and configure tailscale?" && setup-tailscale
+
+function setup-syncthing () {
+    sudo pacman -S syncthing
+    systemctl --user enable --now syncthing.service
+}
+gum confirm "Install and configure syncthing?" && setup-syncthing
+
+echo "Visit https://localhost:8384 to configure syncthing"
+
