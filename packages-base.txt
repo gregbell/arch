@@ -11,3 +11,5 @@ less
 reflector
 starship
 rsync
+tldr
+pacman-contrib
