@@ -59,7 +59,8 @@ sudo systemctl enable --now NetworkManager
 
 echo "> Install 1Password..."
 
-yay -Syu --needed 1password 1password-cli
+sudo pacman -S --needed 1password
+yay -S --needed 1password-cli
 
 echo -e "\n\n${YELLOW}== Installation complete${NC}"
 
