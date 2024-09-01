@@ -8,6 +8,10 @@ NC='\033[0m' # No Color
 
 echo -e "${YELLOW}== Arch Install${NC}"
 
+echo -e "\n=== ${RED}Set a nice TTY font${NC}"
+
+sudo pacman -S --needed terminus-font
+echo -e 'FONT=ter-122b' | sudo tee -a /etc/vconsole.conf
 echo -e "\n=== ${RED}Check initial deps${NC}"
 
 sudo pacman -S --needed gum
