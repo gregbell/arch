@@ -16,3 +16,5 @@ pacman-contrib
 docker
 docker-compose
 docker-buildx
+zip
+unzip
