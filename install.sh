@@ -18,9 +18,6 @@ echo -e 'FONT=ter-122b' | sudo tee -a /etc/vconsole.conf
 echo -e "\n=== ${RED}Check initial deps${NC}"
 sudo pacman -S --needed gum
 
-
-echo -e "\n===${RED} Installing the Chaotic AUR${NC}"
-
 echo -e "\n===${RED} Install the Chaotic AUR${NC}"
 sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 sudo pacman-key --lsign-key 3056513887B78AEB
@@ -58,11 +55,9 @@ for file in $selected_files; do
 done
 
 echo "> Enable base services"
-
 sudo systemctl enable --now NetworkManager
 
 echo "> Install 1Password..."
-
 sudo pacman -S --needed 1password
 yay -S --needed 1password-cli
 
