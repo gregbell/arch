@@ -8,20 +8,20 @@ NC='\033[0m' # No Color
 
 echo -e "${YELLOW}== Arch Install${NC}"
 
-echo -e "\n=== ${RED}Set a nice TTY font${NC}"
+echo -e "\n=== ${RED}Ensure Parallel Downloads in pacman.conf${NC}"
+sudo sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 
+echo -e "\n=== ${RED}Set a nice TTY font${NC}"
 sudo pacman -S --needed terminus-font
 echo -e 'FONT=ter-122b' | sudo tee -a /etc/vconsole.conf
 
 echo -e "\n=== ${RED}Check initial deps${NC}"
-
 sudo pacman -S --needed gum
-
-gum confirm "Have you updated /etc/pacman.conf?" || { echo "Please update /etc/pacman.conf and try again."; exit 1; }
 
 
 echo -e "\n===${RED} Installing the Chaotic AUR${NC}"
 
+echo -e "\n===${RED} Install the Chaotic AUR${NC}"
 sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 sudo pacman-key --lsign-key 3056513887B78AEB
 sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' --noconfirm
