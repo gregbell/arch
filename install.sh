@@ -17,11 +17,11 @@ echo -e "\n=== ${RED}Ensure Parallel Downloads in pacman.conf${NC}"
 sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 
 echo -e "\n=== ${RED}Set a nice TTY font${NC}"
-pacman -S --needed terminus-font
+pacman -S --noconfirm --needed terminus-font
 echo -e 'FONT=ter-122b' | tee -a /etc/vconsole.conf
 
 echo -e "\n=== ${RED}Check initial deps${NC}"
-pacman -S --needed gum
+pacman -S --noconfirm --needed gum
 
 echo -e "\n=== ${RED}LTS Kernel{NC}"
 for f in /boot/loader/entries/*_linux.conf
@@ -72,13 +72,13 @@ echo "> Enable base services"
 systemctl enable --now NetworkManager
 
 echo "> Install 1Password..."
-pacman -S --needed 1password
+pacman -S --noconfirm --needed 1password
 yay -S --needed 1password-cli
 
 echo -e "\n\n${YELLOW}== Installation complete${NC}"
 
 function setup-tailscale() {
-    pacman -S tailscale
+    pacman -S --noconfirm tailscale
     systemctl enable --now tailscaled
     tailscale up
 }
@@ -86,7 +86,7 @@ function setup-tailscale() {
 gum confirm "Install and configure tailscale?" && setup-tailscale
 
 function setup-syncthing () {
-    pacman -S syncthing
+    pacman -S --noconfirm syncthing
 
     for user in /home/*
     do
@@ -97,5 +97,3 @@ function setup-syncthing () {
 }
 
 gum confirm "Install and configure syncthing?" && setup-syncthing
-
-
