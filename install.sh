@@ -18,6 +18,15 @@ echo -e 'FONT=ter-122b' | sudo tee -a /etc/vconsole.conf
 echo -e "\n=== ${RED}Check initial deps${NC}"
 sudo pacman -S --needed gum
 
+echo -e "\n=== ${RED}LTS Kernel{NC}"
+for f in /boot/loader/entries/*_linux.conf
+do
+    sudo cp "$f" "${f/_linux.conf/_linux-lts.conf}"
+    sudo sed -i 's|Arch Linux|Arch Linux LTS Kernel|g' "$f"
+    sudo sed -i 's|vmlinuz-linux|vmlinuz-linux-lts|g' "$f"
+    sudo sed -i 's|initramfs-linux.img|initramfs-linux-lts.img|g' "$f"
+done
+
 echo -e "\n===${RED} Install the Chaotic AUR${NC}"
 sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 sudo pacman-key --lsign-key 3056513887B78AEB
