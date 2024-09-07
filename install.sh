@@ -82,9 +82,15 @@ gum confirm "Install and configure tailscale?" && setup-tailscale
 
 function setup-syncthing () {
     sudo pacman -S syncthing
-    systemctl --user enable --now syncthing.service
+
+    for user in /home/*
+    do
+        su -l "$user" -c "systemctl --user enable --now syncthing.service"
+    done
+
+    echo "Visit https://localhost:8384 to configure syncthing"
 }
+
 gum confirm "Install and configure syncthing?" && setup-syncthing
 
-echo "Visit https://localhost:8384 to configure syncthing"
 
