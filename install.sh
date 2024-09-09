@@ -81,7 +81,7 @@ for file in $selected_files; do
 done
 
 echo "> Enable base services"
-systemctl enable --now NetworkManager
+systemctl enable NetworkManager
 
 echo "> Install 1Password..."
 pacman -S --noconfirm --needed 1password
@@ -91,7 +91,7 @@ echo -e "\n\n${YELLOW}== Installation complete${NC}"
 
 function setup-tailscale() {
     pacman -S --noconfirm tailscale
-    systemctl enable --now tailscaled
+    systemctl enable tailscaled
     tailscale up
 }
 
@@ -100,7 +100,7 @@ gum confirm "Install and configure tailscale?" && setup-tailscale
 function setup-syncthing () {
     pacman -S --noconfirm syncthing
 
-    su -l "$INSTALLED_USER_NAME" -c "systemctl --user enable --now syncthing.service"
+    su -l "$INSTALLED_USER_NAME" -c "systemctl --user enable syncthing.service"
     echo "Visit https://localhost:8384 to configure syncthing"
 }
 
